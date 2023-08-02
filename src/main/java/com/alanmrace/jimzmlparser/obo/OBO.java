@@ -168,16 +168,16 @@ public class OBO implements Serializable {
             try {
                 logger.log(Level.FINER, "Trying to load OBO from files");
                 ONTOLOGY = OBO.loadOntologyFromFile(IMS_OBO_URI);
-            } catch (IOException ex) {
+            } catch (Exception ex) {
                 try {
                     logger.log(Level.FINER, "Trying to load OBO from URL");
                     ONTOLOGY = OBO.loadOntologyFromURL(IMS_OBO_URI);
-                } catch (IOException ex1) {
+                } catch (Exception ex1) {
                     logger.log(Level.FINER, "Trying to load OBO from resource");
 
                     try {
                         ONTOLOGY = OBO.loadOntologyFromResource(IMS_OBO_URI);
-                    } catch (IOException e) {
+                    } catch (Exception e) {
                         logger.log(Level.SEVERE, "Failed to load any ontology: {0} ", e);
                     }
                 }
